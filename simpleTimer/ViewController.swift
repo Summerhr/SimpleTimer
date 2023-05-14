@@ -38,6 +38,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func resetTapped(_ sender: UIButton) {
+        setupUI()
     }
     
     
