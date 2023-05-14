@@ -12,7 +12,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
-
+    
+    var num = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,8 @@ class ViewController: UIViewController {
     
     
     @IBAction func sliderChanged(_ sender: UISlider) {
+        num = Int(slider.value * 60)
+        mainLabel.text = "\(num) 초"
     }
 
     @IBAction func startTapped(_ sender: UIButton) {
