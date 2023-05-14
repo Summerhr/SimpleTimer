@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import AVFoundation
+
 
 class ViewController: UIViewController {
 
@@ -14,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var slider: UISlider!
     
     var num = 0
+    var timer: Timer?
     
     
     override func viewDidLoad() {
@@ -35,13 +38,25 @@ class ViewController: UIViewController {
     }
 
     @IBAction func startTapped(_ sender: UIButton) {
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [self] _ in
+            
+            if num > 0 {
+                num -= 1
+                slider.value = Float(num) / Float(60)
+                mainLabel.text = "\(num) 초"
+            } else {
+                let systemSoundID: SystemSoundID = 1016
+                AudioServicesPlaySystemSound(systemSoundID)
+                timer?.invalidate()
+            }
+            
+        }
     }
     
     @IBAction func resetTapped(_ sender: UIButton) {
         setupUI()
+        timer?.invalidate()
     }
-    
-    
     
     
 }
