@@ -1,2 +1,2 @@
 # simpleTimer
-A simple 60-seconds Timer App with slider.
+A simple 60-second-TimerApp with slider.
